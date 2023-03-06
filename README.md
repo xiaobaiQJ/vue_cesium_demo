@@ -32,21 +32,21 @@ vue-cli5 以下参考另一篇博客 vue 集成 cesium
  
    #### 2.1. 项目初始化 
     
-         ```
+         
          vue create vue_cesium_demo
-         ```
+         
          
    #### 2.2. 安装 cesium
     
-       ```
+       
         npm install cesium
-       ```
+       
        
    #### 2.3. 配置 cesium 
 
-      ```
+      
        npm install -D copy-webpack-plugin node-polyfill-webpack-plugin @open-wc/webpack-import-meta-loader
-      ```
+      
 
 ###### vue.config.js
 
@@ -200,5 +200,5 @@ viewer.cesiumWidget.creditContainer.style.display = "none";
 
 <img src="https://img-blog.csdnimg.cn/480e90328f494406ba17bad79aa64e8a.png"/>
   
-
+<img src=""/>
 

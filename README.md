@@ -191,6 +191,7 @@ viewer.cesiumWidget.creditContainer.style.display = "none";
 
 ## 4.显示效果
 
-![1](doc/full.png "1")
-![2](doc/beijing.png "2")
-![image](https://github.com/lexsaints/powershell/blob/master/IMG/ps2.png)
+![1](doc/1.png "1")
+![2](doc/2.png "2")
+![image](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/1.png)
+![image](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/2.png)

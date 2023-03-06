@@ -30,13 +30,13 @@ vue-cli5 以下参考另一篇博客 vue 集成 cesium
 
  ## 2. 安装并配置 cesium
  
-    #### 2.1. 项目初始化 
+   #### 2.1. 项目初始化 
     
          ```
          vue create vue_cesium_demo
          ```
          
-    #### 2.2. 安装 cesium
+   #### 2.2. 安装 cesium
     
        ```
         npm install cesium

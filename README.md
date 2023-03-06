@@ -196,8 +196,8 @@ viewer.cesiumWidget.creditContainer.style.display = "none";
 
 ## 4.显示效果
 
- ![1]([https://i.bmp.ovh/imgs/2019/11/28f8a9059f089e05.png](https://img-blog.csdnimg.cn/419193e428484ecab2e9c2967aa5d7cb.png))
- 
+<img src="https://img-blog.csdnimg.cn/419193e428484ecab2e9c2967aa5d7cb.png"/>
+
  ![2]([https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/2.png](https://img-blog.csdnimg.cn/480e90328f494406ba17bad79aa64e8a.png))
   
 

@@ -193,5 +193,5 @@ viewer.cesiumWidget.creditContainer.style.display = "none";
 
 ![1](doc/1.png "1")
 ![2](doc/2.png "2")
-![image](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/1.png)
-![image](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/2.png)
+![doc](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/1.png)
+![doc](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/2.png)

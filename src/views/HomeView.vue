@@ -1,17 +1,19 @@
 <template>
   <div class="home">
-    <CesiumDemo />
+   <!--  <CesiumDemo /> -->
+    <component :is='"CesiumMap"'></component>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import CesiumDemo from '@/components/CesiumDemo.vue'
-
+import CesiumMap from '@/components/CesiumMap'
 export default {
   name: 'HomeView',
   components: {
-    CesiumDemo
+    CesiumDemo,
+    CesiumMap
   }
 }
 </script>

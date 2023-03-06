@@ -15,5 +15,7 @@ npm run serve
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 显示效果
+
+![1](doc/full.png "1")
+![2](doc/beijing.png "2")

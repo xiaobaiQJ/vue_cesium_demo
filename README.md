@@ -29,14 +29,19 @@ vue-cli5 以下参考另一篇博客 vue 集成 cesium
 ```
 
  ## 2. 安装并配置 cesium
-    #### 2.1. 项目初始化 
+ 
+   #### 2.1. 项目初始化 
+    
          ```
          vue create vue_cesium_demo
          ```
-    #### 2.2. 安装 cesium
+         
+   #### 2.2. 安装 cesium
+    
        ```
         npm install cesium
        ```
+       
    #### 2.3. 配置 cesium 
 
       ```
@@ -191,7 +196,18 @@ viewer.cesiumWidget.creditContainer.style.display = "none";
 
 ## 4.显示效果
 
-![1](doc/1.png "1")
+  ![1](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/1.png)
+  
+  ![2](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/2.png)
+  
+
+<!-- ![1](doc/1.png "1")
 ![2](doc/2.png "2")
+<<<<<<< HEAD
 ![doc](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/1.png)
 ![doc](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/2.png)
+=======
+![image](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/1.png)
+![image](https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/2.png)
+ -->
+>>>>>>> e8a7a1199fdd2ccee7642be1cbe9af4cda1e1198

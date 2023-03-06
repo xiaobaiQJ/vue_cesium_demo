@@ -200,5 +200,5 @@ viewer.cesiumWidget.creditContainer.style.display = "none";
 
 <img src="https://img-blog.csdnimg.cn/480e90328f494406ba17bad79aa64e8a.png"/>
   
-<img src=""/>
+<img src="https://github.com/1t1824d/vue_cesium_demo/blob/master/doc/1.png"/>
 

@@ -1,5 +1,7 @@
 <template>
-  <div :id="id" ref="cesiumContainer" :style="{ height, width }" />
+  <div class="CesiumOutbox">
+    <div ref="cesiumContainer" :style="{ height, width }"></div>
+  </div>
 </template>
 
 <script>
@@ -9,10 +11,6 @@ import { Viewer } from 'cesium'
 export default {
   name: 'CesiumMap',
   props: {
-    id: {
-      type: String,
-      default: (() => Math.random().toString(36).substr(2))()
-    },
     width: {
       type: String,
       default: '100%'
@@ -38,8 +36,7 @@ export default {
   },
   methods: {
     initCesium() {
-      const el = this.$refs.cesiumContainer
-
+      let el = this.$refs.cesiumContainer
       this.viewer = new Viewer(el, {
         selectionIndicator: false,
         infoBox: false,
@@ -65,3 +62,10 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.CesiumOutbox {
+  width: 100%;
+  height: 100%;
+}
+</style>
+

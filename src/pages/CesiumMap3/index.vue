@@ -1,12 +1,10 @@
 <template>
-  <div v-if="className" :class="className">
-    <div :id="id" ref="cesiumContainer" :style="{ height: height, width: width }" />
+  <div class="CesiumOutbox">
+    <div :id="id" ref="cesiumContainer" :style="{ height: height, width: width }"></div>
   </div>
-  <div v-else :id="id" ref="cesiumContainer" :style="{ height: height, width: width }" />
 </template>
 
 <script>
-import 'cesium/Build/Cesium/Widgets/widgets.css'
 import {
   Viewer,
   GeoJsonDataSource,
@@ -15,21 +13,13 @@ import {
   HeadingPitchRange,
   Math as CesiumMath
 } from 'cesium'
-
-import china from './100000_full.json'
-import beijiing from './110000_full.json'
+import 'cesium/Build/Cesium/Widgets/widgets.css'
+import ChinaJsonData from './data/100000_full.json'
+import BeiJingJsonData from './data/110000_full.json'
 
 export default {
   name: 'CesiumMap',
   props: {
-    instance: {
-      type: Object,
-      default: () => undefined
-    },
-    className: {
-      type: String,
-      default: ''
-    },
     id: {
       type: String,
       default: (() => Math.random().toString(36).substr(2))()
@@ -59,9 +49,8 @@ export default {
   },
   methods: {
     initCesium() {
-      const el = this.$refs.cesiumContainer
-
-      const viewer = this.viewer = new Viewer(el, {
+      let el = this.$refs.cesiumContainer
+      this.viewer = new Viewer(el, {
         selectionIndicator: false,
         infoBox: false,
         contextOptions: {
@@ -80,41 +69,29 @@ export default {
         homeButton: false // 视角返回初始位置
       })
 
-      viewer.scene.globe.baseColor = Color.BLACK // 设置地球颜色
-      // 去除logo
-      this.viewer.cesiumWidget.creditContainer.style.display = "none";
-      this.$emit('update:instance', viewer)
-
-      this.loadGeoJsonDataSource(china)
+      this.viewer.scene.globe.baseColor = Color.BLACK // 设置地球颜色
+      this.viewer.cesiumWidget.creditContainer.style.display = "none";// 去除logo
+      this.loadGeoJsonDataSource(ChinaJsonData)
       setTimeout(() => {
-        this.loadGeoJsonDataSource(beijiing, true, false).then(function (entities) {
-          entities = entities.values
+        this.loadGeoJsonDataSource(BeiJingJsonData, true, false).then((entities) => {
+          let colorHash = {}
+          entities.values.map((ele, index) => {
+            if (!colorHash[ele.name]) {
+              colorHash[ele.name] = Color.fromRandom({ alpha: 1.0 })
 
-          const colorHash = {}
-          for (let i = 0; i < entities.length; i++) {
-            const entity = entities[i]
-            const name = entity.name
-            let color = colorHash[name]
-            if (!color) {
-              color = Color.fromRandom({ alpha: 1.0 })
-              colorHash[name] = color
             }
-
-            entity.polygon.material = color
-            entity.polygon.outline = false
-
-            entity.polygon.extrudedHeight = entity.properties.adcode / 50.0
-          }
+            ele.polygon.material = colorHash[ele.name]
+            ele.polygon.outline = false
+            ele.polygon.extrudedHeight = ele.properties.adcode / 50.0
+          })
         })
         console.log('timeout')
       }, 3000)
     },
     loadGeoJsonDataSource(geojson, flyTo = true, only = true) {
-      const viewer = this.viewer
-      let customDataSource = this.customDataSource
-      if (!customDataSource) {
-        this.customDataSource = customDataSource = new CustomDataSource('myData')
-        viewer.dataSources.add(customDataSource)
+      if (!this.customDataSource) {
+        this.customDataSource = new CustomDataSource('myData')
+        this.viewer.dataSources.add(this.customDataSource)
       }
 
       return GeoJsonDataSource.load(geojson, {
@@ -123,12 +100,12 @@ export default {
         strokeWidth: 3,
         markerSymbol: '?'
       }).then(dataSource => {
-        only && customDataSource.entities.removeAll()
+        only && this.customDataSource.entities.removeAll()
         dataSource.entities.values.forEach(entity => {
-          customDataSource.entities.add(entity)
+          this.customDataSource.entities.add(entity)
         })
 
-        flyTo && viewer.flyTo(customDataSource, {
+        flyTo && this.viewer.flyTo(this.customDataSource, {
           duration: 0.8
         })
 
@@ -138,3 +115,9 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.CesiumOutbox {
+  width: 100%;
+  height: 100%;
+}
+</style>
